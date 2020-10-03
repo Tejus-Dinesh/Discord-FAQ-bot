@@ -21,17 +21,13 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-
-    brooklyn_99_quotes = [
-        'I\'m the human form of the 💯 emoji.',
-        'Bingpot!',
-        (
-            'Cool. Cool cool cool cool cool cool cool, '
-            'no doubt no doubt no doubt no doubt.'
-        ),
+    #List of standard response
+    welcome_quotes = [
+        'Hey welcome to the server',
+        'Hi there!'
     ]
 
-    if message.content == '99':
-        response = random.choice(brooklyn_99_quotes)
-        await message.channel.send(response)
+    if message.content == 'Hi': #Checking the message content, ex : !help -> to print all the commands this bot can help with
+        response = random.choice(welcome_quotes) 
+        await message.channel.send(response)   #sending response
 client.run(TOKEN)
